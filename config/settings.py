@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "univs",
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -121,3 +125,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#내가만든 USER 쓸게 알려주기
+AUTH_USER_MODEL = 'univs.User'
