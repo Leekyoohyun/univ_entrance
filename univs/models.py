@@ -27,7 +27,6 @@ class User(AbstractUser):
 
 class AdmissionEvaluation(models.Model):
     #id = 고유번호
-    #자동생성?
     id = models.IntegerField(primary_key=True)
     #comment = 총평
     comment = models.TextField()
@@ -35,12 +34,12 @@ class AdmissionEvaluation(models.Model):
     #score = 점수
     score = models.IntegerField(null=True)
     
-    #admission_type=지원유형
+    
     class AdmissionType(models.TextChoices):
-        # ("DB에 저장될 내용", "django 관리자 페이지 등등에서 보여질 내용")
         RECORDS = ("학생부종합", "학생부 종합입니다.")
         SUBJECT = ("학생부교과", "학생부 교과입니다.")
 
+    #admission_type=지원유형
     admission_type = models.CharField(max_length = 10, choices=AdmissionType.choices)
 
     #user_id
