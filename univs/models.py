@@ -6,8 +6,7 @@ import datetime
 
 class University(models.Model):
     #id = 대학번호
-    #자동생성?
-
+    id = models.IntegerField(primary_key=True)
     #name = 대학교 이름
     name = models.CharField(max_length=30)
     #address = 대학교 주소
@@ -18,20 +17,18 @@ class University(models.Model):
 
 class User(AbstractUser):
     #id = 면접관번호
-    #자동생성?
-
+    id = models.IntegerField(primary_key=True)
     # #password
-    # password = models.CharField(max_length = 50)
-    # #username = 닉네임
-    # username = models.CharField(max_length=150, unique=True)
-
+    password = models.CharField(max_length = 50)
+    #username = 닉네임
+    username = models.CharField(max_length=150, unique=True)
     #대학번호
     university_id = models.ForeignKey('univs.University', on_delete=models.CASCADE, null = True)
 
 class AdmissionEvaluation(models.Model):
     #id = 고유번호
     #자동생성?
-    
+    id = models.IntegerField(primary_key=True)
     #comment = 총평
     comment = models.TextField()
     
@@ -69,6 +66,7 @@ class Student(models.Model):
 
 
 class StudentDocument(models.Model):
-    #file = models.FileField(max_length=255, upload_to='where?')
+    id = models.IntegerField(primary_key=True)
+    file = models.FileField(max_length=255, upload_to='\media', null=True)#파일위치 어디로할지 모르겠음
     date = models.DateField(auto_now_add=True)
     student_id = models.ForeignKey('univs.Student', on_delete=models.CASCADE)
